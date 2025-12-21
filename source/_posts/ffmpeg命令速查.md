@@ -8,11 +8,6 @@ tags:
   - 操作音
   - 压缩视频指定文件大小
 ---
-# ffmpeg 命令速查
-
-详解与更多场景：
-
-- [FFmpeg：音视频处理终极指南](FFmpeg：音视频处理终极指南.md)
 
 官网：`https://ffmpeg.org/`
 
