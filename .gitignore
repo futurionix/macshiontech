@@ -1,3 +1,7 @@
+__IGNORE__
+dev-logs/
+.dev
+dev
 .DS_Store
 Thumbs.db
 db.json

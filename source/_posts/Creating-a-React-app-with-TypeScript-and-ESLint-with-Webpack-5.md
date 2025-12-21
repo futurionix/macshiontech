@@ -6,7 +6,6 @@ tags:
 - TypeScript
 - Webpack
 - React
-categories: English
 ---
 
 This post will cover how to use [webpack 5](https://webpack.js.org/) to bundle a React and TypeScript app. Our setup will include type checking with TypeScript and linting with [ESLint](https://eslint.org/) in the Webpack process, which will help code quality. We will configure Webpack to give us a great development experience with hot reloading and an optimized production bundle.
