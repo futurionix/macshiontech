@@ -1,6 +1,13 @@
 #archive
   .post-year
     list-style-type: none
+    margin-top: 2rem
+    margin-bottom: 1.5rem
+    padding-bottom: 0.5rem
+    border-bottom: 2px solid $color-accent-1
+    font-size: 1.5em
+    font-weight: bold
+    color: $color-accent-1
 
   .post-list
     padding: 0
@@ -9,20 +16,40 @@
       margin-bottom: 1rem
       margin-left: 0
       list-style-type: none
+      padding: 1rem
+      border-left: 4px solid $color-accent-1
+      background: rgba($color-accent-1, .03)
+      border-radius: 4px
+      transition: all .3s ease
+
+      &:hover
+        background: rgba($color-accent-1, .08)
+        transform: translateX(8px)
+        box-shadow: 0 4px 12px rgba($color-accent-1, .15)
 
       .meta
         display: block
         margin-right: 16px
         min-width: 100px
         color: $color-meta
-        font-size: 14px
+        font-size: 13px
+        font-weight: 600
+
+      a
+        color: $color-link
+        transition: color .2s ease
+        
+      a:hover
+        color: lighten($color-link, 20%)
 
   @media (min-width: 480px)
     .post-list
       .post-item
         display: flex
-        margin-bottom: 5px
-        margin-left: 1rem
+        margin-bottom: 8px
+        margin-left: 0
 
         .meta
           text-align: left
+          margin-right: 2rem
+          min-width: 120px

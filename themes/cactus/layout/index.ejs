@@ -1,3 +1,4 @@
+<!-- 个人介绍区域 -->
 <section id="about" class="p-note">
   <% if (config.description) { %>
     <%- markdown(config.description) %>
@@ -32,6 +33,166 @@
   <% } %>
 </section>
 
+<!-- 多语言分区选择 -->
+<section id="language-selector" class="language-section">
+  <span class="h1">Choose Your Language / 选择语言</span>
+  
+  <% 
+    // 统计函数：计算分类统计信息
+    function getCategoryStats(categoryName) {
+      var posts = [];
+      var totalWords = 0;
+      var latestDate = null;
+      
+      site.posts.each(function(post) {
+        if (post.categories.some(cat => cat.name === categoryName)) {
+          posts.push(post);
+          totalWords += (post.content || '').length;
+          if (!latestDate || post.date > latestDate) {
+            latestDate = post.date;
+          }
+        }
+      });
+      
+      // 计算平均阅读时间 (假设 300 字/分钟)
+      var totalMinutes = Math.ceil(totalWords / 300);
+      var hours = Math.floor(totalMinutes / 60);
+      var minutes = totalMinutes % 60;
+      
+      return {
+        posts: posts,
+        count: posts.length,
+        totalWords: totalWords,
+        avgReadTime: totalMinutes,
+        readTimeFormatted: {
+          hours: hours,
+          minutes: minutes
+        },
+        latestDate: latestDate
+      };
+    }
+    
+    // 获取各分类统计
+    var englishStats = getCategoryStats('English');
+    var chineseStats = getCategoryStats('中文');
+  %>
+  
+  <div class="language-cards">
+    <!-- English Card -->
+    <div class="language-card english-card">
+      <div class="language-header">
+        <h2 class="language-title">
+          <i class="fa-solid fa-globe"></i> English
+        </h2>
+        <p class="language-count"><%- englishStats.count %> Articles</p>
+      </div>
+      
+      <div class="language-stats">
+        <div class="stat-item">
+          <span class="stat-label">Total Words:</span>
+          <span class="stat-value"><%- englishStats.totalWords.toLocaleString() %></span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Avg. Read Time:</span>
+          <span class="stat-value">
+            <% if (englishStats.readTimeFormatted.hours > 0) { %>
+              <%- englishStats.readTimeFormatted.hours %>h <%- englishStats.readTimeFormatted.minutes %>m
+            <% } else { %>
+              <%- englishStats.readTimeFormatted.minutes %>m
+            <% } %>
+          </span>
+        </div>
+        <% if (englishStats.latestDate) { %>
+        <div class="stat-item">
+          <span class="stat-label">Latest Update:</span>
+          <span class="stat-value"><%- englishStats.latestDate.format('MMM DD, YYYY') %></span>
+        </div>
+        <% } %>
+      </div>
+
+      <div class="language-body">
+        <p class="language-desc">Read posts in English</p>
+        <a href="<%- url_for('/categories/English/') %>" class="btn-read-more">
+          Browse All <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <!-- 最新文章预览 -->
+      <% if (englishStats.posts.length > 0) { %>
+      <div class="preview-articles">
+        <h3 class="preview-title">Latest Posts</h3>
+        <ul class="preview-list">
+          <% var sortedEnglishPosts = englishStats.posts.sort(function(a, b) { return b.date - a.date; }).slice(0, 3); %>
+          <% sortedEnglishPosts.forEach(function(post) { %>
+          <li class="preview-item">
+            <span class="preview-date"><%- post.date.format('MMM DD') %></span>
+            <a href="<%- url_for(post.path) %>" class="preview-link"><%- post.title %></a>
+          </li>
+          <% }); %>
+        </ul>
+      </div>
+      <% } %>
+    </div>
+
+    <!-- Chinese Card -->
+    <div class="language-card chinese-card">
+      <div class="language-header">
+        <h2 class="language-title">
+          <i class="fa-solid fa-book"></i> 中文
+        </h2>
+        <p class="language-count"><%- chineseStats.count %> 篇文章</p>
+      </div>
+
+      <div class="language-stats">
+        <div class="stat-item">
+          <span class="stat-label">总字数：</span>
+          <span class="stat-value"><%- chineseStats.totalWords.toLocaleString() %></span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">平均阅读时间：</span>
+          <span class="stat-value">
+            <% if (chineseStats.readTimeFormatted.hours > 0) { %>
+              约 <%- chineseStats.readTimeFormatted.hours %> 小时 <%- chineseStats.readTimeFormatted.minutes %> 分钟
+            <% } else { %>
+              约 <%- chineseStats.readTimeFormatted.minutes %> 分钟
+            <% } %>
+          </span>
+        </div>
+        <% if (chineseStats.latestDate) { %>
+        <div class="stat-item">
+          <span class="stat-label">最新更新：</span>
+          <span class="stat-value"><%- chineseStats.latestDate.format('YYYY年MM月DD日') %></span>
+        </div>
+        <% } %>
+      </div>
+
+      <div class="language-body">
+        <p class="language-desc">阅读中文文章</p>
+        <a href="<%- url_for('/categories/中文/') %>" class="btn-read-more">
+          查看全部 <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <!-- 最新文章预览 -->
+      <% if (chineseStats.posts.length > 0) { %>
+      <div class="preview-articles">
+        <h3 class="preview-title">最新文章</h3>
+        <ul class="preview-list">
+          <% var sortedChinesePosts = chineseStats.posts.sort(function(a, b) { return b.date - a.date; }).slice(0, 3); %>
+          <% sortedChinesePosts.forEach(function(post) { %>
+          <li class="preview-item">
+            <span class="preview-date"><%- post.date.format('MM月DD日') %></span>
+            <a href="<%- url_for(post.path) %>" class="preview-link"><%- post.title %></a>
+          </li>
+          <% }); %>
+        </ul>
+      </div>
+      <% } %>
+    </div>
+  </div>
+</section>
+
+<!-- 最新文章展示 -->
 <section id="writing">
 
   <span class="h1"><a href="<%- url_for(theme.nav.articles) %>"><%= __('index.articles') %></a></span>

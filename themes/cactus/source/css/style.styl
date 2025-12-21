@@ -68,6 +68,18 @@ body
     }
 }
 
+/* 新粒子背景系统 */
+#particle-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* 旧星点背景（兼容性保留） */
 .stars {
     position: fixed;
     top: 0;
@@ -87,12 +99,14 @@ body
     background-size: 250px 250px;
     background-repeat: repeat;
     animation: twinkle 3s infinite alternate;
+    display: none;
 }
 
 .content
   position: relative
   display: flex
   flex-direction: column
+  z-index: 1
   min-height: 100%
   overflow-wrap: break-word
 

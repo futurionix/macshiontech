@@ -140,10 +140,10 @@ article
 #navLeft
     position: fixed;
     top: 20vh;
-    width: 58rem;
+    width: 70rem;
     margin-left: auto;
     margin-right: auto;
-    transform: translateX(-12rem)
+    transform: translateX(-14rem)
     ul
       line-height: 30px
       list-style: none;
@@ -152,6 +152,8 @@ article
         margin-right: 15px
         color: $color-accent-1
         background-image: none
+        transition: all .3s ease
 
       a:hover
         underline(5px, $color-accent-1)
+        color: lighten($color-accent-1, 20%)
