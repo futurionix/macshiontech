@@ -21,5 +21,6 @@
 	- 文章名与文件名一致（标题与文件语义保持一致）。
 	- `permalink` 统一使用英文 slug（例如：`permalink: ffmpeg-ultimate-guide/`）。
 	- `date` 一般为当前时间；如果是将既有文档“改写为博文”，且可以获取到写作时间，则优先使用该文档的最后编辑时间作为写作日期（可优先参考 Git 提交时间，其次参考文件系统修改时间）。
+- 常用的 Front-matter 习惯（title/permalink/date/category/tags + <!-- more --> 摘要截断）。
 - 代码块用三反引号并标注语言（`js`/`ts`/`bash`/`python`）。
 - 中英文混排时中英文之间加空格。
