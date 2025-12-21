@@ -9,24 +9,7 @@ I am passionate about coding/programming. ❤️
 
 ## My Tech Stack: 
 
-<style>
-    .icons-contents img {
-        height: 20px!important;
-        padding-right:5px;
-        float:left;
-    }
-</style>
-<div class="icons-contents">
-
-<img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png">
-<img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/typescript/typescript.png">
-<img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png">
-<img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/vue/vue.png">
-<img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/nodejs/nodejs.png">   
-
-</div>
-
-❖HTML(5), CSS(3),  JavaScript,**Typescript**, **Vue**, **React**🔥, Sass, Less, Bootstrap,jQuery...
+❖HTML(5), CSS(3),  JavaScript,**Typescript**, **Vue**, **React**🔥, Sass, Less, Bootstrap, jQuery...
 
 ❖ Frontend Developer with **８+** years of professional experiences in Web Designing and User Interface Development. 
 
