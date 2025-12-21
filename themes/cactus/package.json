@@ -8,21 +8,13 @@
     "test": "gulp validate --silent",
     "clean": "stylus-supremacy format source/css/**/*.styl --options .stylintrc -r"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/probberechts/cactus-dark.git"
-  },
   "keywords": [
     "Hexo",
     "Theme",
     "Cactus"
   ],
-  "author": "Pieter Robberechts",
+  "author": "Macshion",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/probberechts/cactus-dark/issues"
-  },
-  "homepage": "https://github.com/probberechts/cactus-dark#readme",
   "type": "module",
   "devDependencies": {
     "del": "*",
