@@ -104,6 +104,6 @@ theme: cactus
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://github.com/macshion/macshion.github.io # https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
+  repo: git@github.com-macshion:macshion/macshion.github.io.git
   branch: master
   message: deploy
