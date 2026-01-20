@@ -5,6 +5,8 @@ category: 中文
 tags:
     - JavaScript
     - 函数防抖
+    - 前端面试
+    - 防抖节流
 ---
 
 Debounce（防抖）：**在一定时间间隔内，确保函数只执行一次**。
